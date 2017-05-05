@@ -9,13 +9,6 @@
          $products = $result['product'];
          $output = "";
          foreach($products as $product){
-        //      $output .= "<tr>";
-        //  foreach($products as $product){
-        //      $output .= "<td>{$city['city_name_en']}</td>";
-        //      $output .= "<td class='ar'>{$city['city_name_ar']}</td>";
-        //      $output .= "<td><a onclick='openCityLocations(this,{$city['city_id']})'><span class='glyphicon glyphicon-list-alt'></span></td></a>";
-        //      $output .= "</tr>";
-
 			$output.="<div class='ad-item row'>";
 			$output.="<div class='item-image-box col-sm-3'>";
 			$output.="<div class='item-image'>";

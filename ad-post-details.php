@@ -456,50 +456,6 @@
 	</script>
 	<script>
             function SaveProduct(){
-				//e.preventDefault()
-                // if($("#nameEn").val().trim() == ""){
-                //     $("#nameEn").parent().addClass("has-error");
-                //     $("#nameEn").focus();
-                //     return ;
-                // }//end if
-                
-                // if($("#nameAr").val().trim() == ""){
-                //     $("#nameAr").parent().removeClass("has-error");
-                //     $("#nameAr").parent().addClass("has-error");
-                //     $("#nameAr").focus();
-                //     return ;
-                // }//end if
-                
-                // if($("#descriptionEn").val().trim() == ""){
-                //     $("#descriptionEn").parent().removeClass("has-error");
-                //     $("#descriptionEn").parent().addClass("has-error");
-                //     $("#descriptionEn").focus();
-                //     return ;
-                // }//end if
-                
-                // if($("#descriptionAr").val().trim() == ""){
-                //     $("#descriptionAr").parent().removeClass("has-error");
-                //     $("#descriptionAr").parent().addClass("has-error");
-                //     $("#descriptionAr").focus();
-                //     return ;
-                // }//end if
-                
-                // if($("#xCoordinate").val().trim() == ""){
-                //     $("#xCoordinate").parent().removeClass("has-error");
-                //     $("#xCoordinate").parent().addClass("has-error");
-                //     $("#xCoordinate").focus();
-                //     return ;
-                // }//end if
-                
-                // if($("#yCoordinate").val().trim() == ""){
-                //     $("#yCoordinate").parent().removeClass("has-error");
-                //     $("#yCoordinate").parent().addClass("has-error");
-                //     $("#yCoordinate").focus();
-                //     return ;
-                // }//end if
-                
-                // $("#yCoordinate").parent().removeClass("has-error");
-                
                 var params = "ddlcat=" + $("#ddlcat").val();
                 params += "&pro_name=" + $("#pro_name").val().trim();
                 params += "&pro_price=" + $("#pro_price").val().trim();
@@ -522,20 +478,14 @@
                         if(data.error == false) {
 							setCookie("proid",data.product.product_id,1)
 							$("#btnupimg").click();
-                            $("#serverMessage").removeClass("alert-danger");
-                            $("#serverMessage").addClass("alert-success");
-                            $("#serverMessage").html("New Location has been Added Successfully");
-                           // addLocationToTable(data.location);
+                         
                         } else {
-                            $("#serverMessage").removeClass("alert-success");
-                            $("#serverMessage").addClass("alert-danger");
-                            $("#serverMessage").html("Failed to add New Location");
+                  
                         }//end if
-                        $("#serverMessage").show();
-                        $("#newLocationModal").modal('hide');
-                    }//end function                    
+         
+                    }                  
                 });              
-            }//end SaveCity functiomn
+            }
 
 			function preview_image() 
 			{
