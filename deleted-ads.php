@@ -4,7 +4,7 @@
 <?php 
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/haraj/class/product.inc.php');
     $product = new Product();
-    $result = $product->get_pending_products_with_images();    
+    $result = $product->get_deleted_products_with_images();    
      if(isset($result['product'])) {
          $products = $result['product'];
          $output = "";
@@ -29,7 +29,7 @@
 					$output.="<div class='ad-meta'>";
 					$output.="<div class='meta-content'>";
 					$output.="<span class='dated'>Uploaded On: <a href='#'>{$product['publish_date']}</a></span>";
-					$output.="<span class='pending'>Pending</span>";
+					$output.="<span class='pending'>Deleted</span>";
 					$output.="</div>	";									
 					$output.="<div class='user-option pull-right'>";
 					$output.="<a onclick=approveProduct(this,event,'{$product['product_id']}',1) class='edit-item' href='#' data-toggle='tooltip' data-placement='top' title='Approve'><i class='fa fa-thumbs-up'></i></a>";
@@ -130,7 +130,7 @@
 									<li><a href="archived-ads.html">Archived Ads</a></li>
 									<li class="active"><a href="pending-ads.html">Pending Ads</a></li>
 									<li><a href="delete-account.html">Close Account</a></li>
-									<li><a href="published.html">Ad Publised</a></li>
+									<li><a href="deleted-ads.php">Deleted Ads</a></li>
 									<li><a href="signup.html">Sign Up</a></li>
 									<li><a href="signin.html">Sign In</a></li>
 									<li><a href="faq.html">FAQ</a></li>	
@@ -202,18 +202,18 @@
 								<a href="#">18<small>Favorites</small></a>
 							</div>-->
 						</div>								
-					</div><!-- user-profile -->
+					</div>
 							
 					<ul class="user-menu">
 						<li><a href="my-profile.html">Profile</a></li>
 						<li><a href="my-ads.html">My ads</a></li>
 						<li><a href="favourite-ads.html">Favourite ads</a></li>
 						<li><a href="archived-ads.html">Archived ads </a></li>
-						<li class="active"><a href="pending-ads.html">Pending approval</a></li>
-						<li><a href="delete-account.html">Close account</a></li>
+						<li ><a href="pending-ads.html">Pending approval</a></li>
+						<li class="active"><a href="deleted-ads.php">Deleted Ads</a></li>
 					</ul>
 			
-			</div><!-- ad-profile -->			
+			</div>		
 			
 			<div class="ads-info">
 				<div class="row">

@@ -4,6 +4,22 @@
 <?php 
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/haraj/class/product.inc.php');
     $product = new Product();
+	$category = $product->get_categories(); 
+//	if(isset($category['categories'])) {
+		$categories = $category;
+		$catSearch="<option value='0'>اختر الصنف</option>";
+		$cat = "";
+		foreach($categories as $cats){
+			$cat.="<li class='category-item'>";
+			$cat.="<a href='category.php?id={$cats['category_id']}'>";
+			$cat.="<div class='category-icon'><img src='images/icon/{$cats['category_img']}' alt='images' class='img-responsive'></div>";
+			$cat.="<span class='category-title'>{$cats['category_name']}</span>";
+			// $cat.="<span class='category-quantity'>(1298)</span>";
+			$cat.="</a>";
+			$cat.="</li>";
+			$catSearch.="<option value='{$cats['category_id']}'>{$cats['category_name']}</option>";
+		}
+//	}
     $result = $product->get_products_with_images();    
      if(isset($result['product'])) {
          $products = $result['product'];
@@ -74,13 +90,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/ico/apple-touch-icon-57-precomposed.png">
     <!-- icons -->
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Template Developed By ThemeRegion -->
   </head>
   <body>
 	<!-- header -->
@@ -187,19 +196,15 @@
 						<div class="banner-form">
 							<form action="#">
 								<!-- category-change -->
-								<div class="dropdown category-dropdown">						
-									<a data-toggle="dropdown" href="#"><span class="change-text">Select Category</span> <i class="fa fa-angle-down"></i></a>
-									<ul class="dropdown-menu category-change">
-										<li><a href="#">Fashion & Beauty</a></li>
-										<li><a href="#">Cars & Vehicles</a></li>
-										<li><a href="#">Electronics & Gedgets</a></li>
-										<li><a href="#">Real Estate</a></li>
-										<li><a href="#">Sports & Games</a></li>
-									</ul>								
+								<div style=" float: right;text-align: right;" class="dropdown category-dropdown">						
+									<!--<a data-toggle="dropdown" href="#"><span class="change-text">Select Category</span> <i class="fa fa-angle-down"></i></a>-->
+									<select id="ddlsearch" style="width: 187px;border: none;margin-right: -19px;" class="form-control">
+										<?php echo $catSearch; ?>
+									</select>								
 								</div><!-- category-change -->
 							
-								<input type="text" class="form-control" placeholder="Type Your key word">
-								<button type="submit" class="form-control" value="Search">Search</button>
+								<input id="txtsearch" type="text" class="form-control" placeholder="اكتب ما تبحث عنه">
+								<button onclick="searchProduct(event)"  type="submit" class="form-control" value="Search">بحث</button>
 							</form>
 						</div><!-- banner-form -->
 						
@@ -218,110 +223,11 @@
 		<div class="container">
 			<div class="section category-ad text-center">
 				<ul class="category-list">	
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/1.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Cars & Vehicles</span>
-							<span class="category-quantity">(1298)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/2.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Electrics & Gedgets</span>
-							<span class="category-quantity">(76212)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/3.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Real Estate</span>
-							<span class="category-quantity">(212)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/4.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Sports & Games</span>
-							<span class="category-quantity">(972)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/5.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Fshion & Beauty</span>
-							<span class="category-quantity">(1298)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/6.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Pets & Animals</span>
-							<span class="category-quantity">(76212)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/9.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Home Appliances</span>
-							<span class="category-quantity">(1298)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/10.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Matrimony Services</span>
-							<span class="category-quantity">(76212)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/11.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Music & Arts</span>
-							<span class="category-quantity">(212)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/12.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Miscellaneous </span>
-							<span class="category-quantity">(1298)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/7.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Job Openings </span>
-							<span class="category-quantity">(124)</span>
-						</a>
-					</li><!-- category-item -->
-					
-					<li class="category-item">
-						<a href="categories.html">
-							<div class="category-icon"><img src="images/icon/8.png" alt="images" class="img-responsive"></div>
-							<span class="category-title">Books & Magazines</span>
-							<span class="category-quantity">(972)</span>
-						</a>
-					</li><!-- category-item -->					
+				<?php echo $cat; ?> 
+							
 				</ul>				
-			</div><!-- category-ad -->	
-
-
-			<!-- ad-section -->						
-			<div class="ad-section text-center">
-				<a href="#"><img src="images/ads/3.jpg" alt="Image" class="img-responsive"></a>
-			</div><!-- ad-section -->
-
+			</div>
+				
 			<!-- trending-ads -->
 			<div class="section trending-ads">
 				<div class="section-title tab-manu">
@@ -549,7 +455,15 @@
 	  ga('send', 'pageview');
 
 	</script>
+	<script>
+		function searchProduct(e)
+		{
+			e.preventDefault()
+			window.location.href = "listings.php?category="+$("#ddlsearch").val()+"&search="+$("#txtsearch").val()+"";
+		
+			
+		}
+	</script>
   </body>
 
-<!-- Mirrored from demo.themeregion.com/trade/index-one.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 27 Apr 2017 20:15:29 GMT -->
 </html>

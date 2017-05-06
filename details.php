@@ -12,16 +12,6 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
         if($result['error'] == false){
             $products = $result['product'];
 			$product_name =  $products[0]['product_name'];
-            // foreach($products as $product){
-            //     $output .= "<tr>";
-            //     $output .= "<td>".$location['location_name_en']."</td>";
-            //     $output .= "<td class='ar'>".$location['location_name_ar']."</td>";
-            //     $output .= "<td>".$location['location_description_en']."</td>";
-            //     $output .= "<td class='ar'>".$location['location_description_ar']."</td>";
-            //     $output .= "<td>".$location['location_x']."</td>";
-            //     $output .= "<td>".$location['location_y']."</td>";
-            //     $output .= "</tr>";                
-            // }//end foreach
         } else {
             header("Location: /haraj/");        
         }//end if
@@ -183,7 +173,7 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
 					<div class="col-md-7">
 						<div id="product-carousel" class="carousel slide" data-ride="carousel">
 							<!-- Indicators -->
-							<ol class="carousel-indicators">
+							<ol style='visibility:hidden' class="carousel-indicators">
 								<li data-target="#product-carousel" data-slide-to="0" class="active">
 									<img src="images/slider/list-1.jpg" alt="Carousel Thumb" class="img-responsive">
 								</li>

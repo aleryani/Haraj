@@ -14,7 +14,19 @@
             $response['error'] = true;
             
                 $response['error'] = false;
-                $query = "SELECT * FROM product WHERE category_id={$category_id}";
+                $query = "SELECT product.product_id,product.product_name, product.product_price, product.product_description, category.category_name, product.publish_date, product.saler_city, product.saler_address, product.product_status,product.product_condition, product_picture.picture_path FROM   category INNER JOIN product ON category.category_id = product.category_id INNER JOIN product_picture ON product.product_id = product_picture.product_id where product_status=1 and product.category_id={$category_id}";
+                $response['product'] = $this->db->execute_select_query($query);
+          
+            return $response;
+        }//end get_products_by_category function
+
+        public function search_products($category_id,$text){
+            $category_id = $this->db->escape_string($category_id);
+            $text = $this->db->escape_string($text);
+            $response['error'] = true;
+            
+                $response['error'] = false;
+                $query = "SELECT product.product_id,product.product_name, product.product_price, product.product_description, category.category_name, product.publish_date, product.saler_city, product.saler_address, product.product_status,product.product_condition, product_picture.picture_path FROM   category INNER JOIN product ON category.category_id = product.category_id INNER JOIN product_picture ON product.product_id = product_picture.product_id where product_status=1 and product.category_id={$category_id} and product.product_name LIKE '%{$text}%'";
                 $response['product'] = $this->db->execute_select_query($query);
           
             return $response;
@@ -47,6 +59,16 @@
      
                 $response['error'] = false;
                 $query = "SELECT product.product_id,product.product_name, product.product_price, product.product_description, category.category_name, product.publish_date, product.saler_city, product.saler_address, product.product_status,product.product_condition, product_picture.picture_path FROM   category INNER JOIN product ON category.category_id = product.category_id INNER JOIN product_picture ON product.product_id = product_picture.product_id where product_status=0";
+                $response['product'] = $this->db->execute_select_query($query);
+   
+            return $response;
+        }
+        public function get_deleted_products_with_images(){
+
+            $response['error'] = true;
+     
+                $response['error'] = false;
+                $query = "SELECT product.product_id,product.product_name, product.product_price, product.product_description, category.category_name, product.publish_date, product.saler_city, product.saler_address, product.product_status,product.product_condition, product_picture.picture_path FROM   category INNER JOIN product ON category.category_id = product.category_id INNER JOIN product_picture ON product.product_id = product_picture.product_id where product_status=2";
                 $response['product'] = $this->db->execute_select_query($query);
    
             return $response;
@@ -94,9 +116,9 @@
             return $response;
         }//end new_product function
 
-        public function approve_product($product_id){
+        public function approve_product($product_id,$product_status){
             $product_id = $this->db->escape_string($product_id);
-            $query = "UPDATE product set product_status='1' where product_id='{$product_id}'";
+            $query = "UPDATE product set product_status='{$product_status}' where product_id='{$product_id}'";
             
             $response['error'] = true;
             if($this->db->execute_query($query) > 0){
