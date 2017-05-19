@@ -4,7 +4,7 @@
 <?php
 
 if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
-    $city = isset($_GET['id']) ? $_GET['id'] : "";
+  
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/haraj/class/product.inc.php');    
     $product = new Product();
     $result = $product->get_product_Details($_GET['id']);    
@@ -12,14 +12,34 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
         if($result['error'] == false){
             $products = $result['product'];
 			$product_name =  $products[0]['product_name'];
-        } else {
+			 $image=$product->get_product_Images($_GET['id']);
+			 $img="";
+			 $count="a";
+			 	$images = $image['images'];
+			 	foreach($images as $imgg){
+					 if($count=="a")
+					 $img.="<div class='item active'>";
+					 else
+					 $img.="<div class='item'>";
+					 $img.="<div class='carousel-image'>";
+					 $img.="<img src='{$imgg['picture_path']}' alt='Featured Image' class='img-responsive'>";
+					 $img.="</div>";
+					 $img.="</div>";
+				$count="b";
+			 }
+		}
+         else {
             header("Location: /haraj/");        
         }//end if
     }//end if
-} else {
+	 else {
     header("Location: /haraj/");
 }//end if
 
+}
+ else {
+    header("Location: /haraj/");
+}//end if
 ?><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,8 +81,7 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
     <!-- Template Developed By ThemeRegion -->
   </head>
   <body>
-	<!-- header -->
-	<header id="header" class="clearfix">
+<header id="header" class="clearfix">
 		<!-- navbar -->
 		<nav class="navbar navbar-default">
 			<div class="container">
@@ -78,79 +97,26 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
 				</div>
 				<!-- /navbar-header -->
 				
-				<div class="navbar-left">
+				<div style='margin-right: 20px;' class="navbar-right">
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="index.html">Home Default </a></li>
-									<li><a href="index-one.html">Home Version-1</a></li>
-									<li><a href="index-two.html">Home Version-2</a></li>
-									<li><a href="index-three.html">Home Version-3</a></li>
-									<li><a href="index-car.html">Home Car-1<span class="badge">New</span></a></li>
-									<li><a href="index-car-two.html">Home Car-2<span class="badge">New</span></a></li>
-									<li><a href="directory.html">Home Directory<span class="badge">Latest</span></a></li>
-								</ul>
-							</li>
-							<li><a href="categories.html">Category</a></li>
-							<li><a href="details.html">all ads</a></li>
-							<li><a href="faq.html">Help/Support</a></li> 
-							<li class="active dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="about-us.html">ABout Us</a></li>
-									<li><a href="contact-us.html">Contact Us</a></li>
-									<li><a href="ad-post.html">Ad post</a></li>
-									<li><a href="ad-post-details.html">Ad post Details</a></li>
-									<li><a href="categories-main.html">Category Ads</a></li>
-									<li class="active"><a href="details.html">Ad Details</a></li>
-									<li><a href="my-ads.html">My Ads</a></li>
-									<li><a href="my-profile.html">My Profile</a></li>
-									<li><a href="favourite-ads.html">Favourite Ads</a></li>
-									<li><a href="archived-ads.html">Archived Ads</a></li>
-									<li><a href="pending-ads.html">Pending Ads</a></li>
-									<li><a href="delete-account.html">Close Account</a></li>
-									<li><a href="published.html">Ad Publised</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
-									<li><a href="signin.html">Sign In</a></li>
-									<li><a href="faq.html">FAQ</a></li>	
-									<li><a href="coming-soon.html">Coming Soon <span class="badge">New</span></a></li>
-									<li><a href="pricing.html">Pricing<span class="badge">New</span></a></li>
-									<li><a href="500-page.html">500 Opsss<span class="badge">New</span></a></li>
-									<li><a href="404-page.html">404 Error<span class="badge">New</span></a></li>
-								</ul>
-							</li>
+							<li><a href="categories.html">الرئيسية</a></li>
+							<li><a href="details.html">جميع الاعلانات</a></li>
+							<li><a href="faq.html">اتصل بنا</a></li> 
+						
 						</ul>
 					</div>
 				</div>
 				
-				<!-- nav-right -->
-				<div class="nav-right">
-					<!-- language-dropdown -->
-					<div class="dropdown language-dropdown">
-						<i class="fa fa-globe"></i> 						
-						<a data-toggle="dropdown" href="#"><span class="change-text">United Kingdom</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu language-change">
-							<li><a href="#">United Kingdom</a></li>
-							<li><a href="#">United States</a></li>
-							<li><a href="#">China</a></li>
-							<li><a href="#">Russia</a></li>
-						</ul>								
-					</div><!-- language-dropdown -->
 
-					<!-- sign-in -->					
-					<ul class="sign-in">
-						<li><i class="fa fa-user"></i></li>
-						<li><a href="signin.html"> Sign In </a></li>
-						<li><a href="signup.html">Register</a></li>
-					</ul><!-- sign-in -->					
+				<div style="text-align:left" class="nav-right">
+					
 
-					<a href="ad-post.html" class="btn">Post Your Ad</a>
+					<a href="new-ad.php" class="btn">انشر اعلانك الان </a>
 				</div>
-				<!-- nav-right -->
-			</div><!-- container -->
-		</nav><!-- navbar -->
-	</header><!-- header -->
-
+			</div>
+		</nav>
+</header>
 	<!-- main -->
 	<section id="main" class="clearfix details-page">
 		<div class="container">
@@ -174,64 +140,19 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
 						<div id="product-carousel" class="carousel slide" data-ride="carousel">
 							<!-- Indicators -->
 							<ol style='visibility:hidden' class="carousel-indicators">
-								<li data-target="#product-carousel" data-slide-to="0" class="active">
-									<img src="images/slider/list-1.jpg" alt="Carousel Thumb" class="img-responsive">
-								</li>
-								<li data-target="#product-carousel" data-slide-to="1">
-									<img src="images/slider/list-2.jpg" alt="Carousel Thumb" class="img-responsive">
-								</li>
-								<li data-target="#product-carousel" data-slide-to="2">
-									<img src="images/slider/list-3.jpg" alt="Carousel Thumb" class="img-responsive">
-								</li>
-								<li data-target="#product-carousel" data-slide-to="3">
-									<img src="images/slider/list-4.jpg" alt="Carousel Thumb" class="img-responsive">
-								</li>
-								<li data-target="#product-carousel" data-slide-to="4">
-									<img src="images/slider/list-5.jpg" alt="Carousel Thumb" class="img-responsive">
-								</li>
+							
 							</ol>
 
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
 								<!-- item -->
-								<div class="item active">
-									<div class="carousel-image">
-										<!-- image-wrapper -->
-										<img src="images/slider/1.jpg" alt="Featured Image" class="img-responsive">
-									</div>
-								</div><!-- item -->
+							<?php echo $img; ?>
 
-								<!-- item -->
-								<div class="item">
-									<div class="carousel-image">
-										<!-- image-wrapper -->
-										<img src="images/slider/2.jpg" alt="Featured Image" class="img-responsive">
-									</div>
-								</div><!-- item -->
 
-								<!-- item -->
-								<div class="item">
-									<div class="carousel-image">
-										<!-- image-wrapper -->
-										<img src="images/slider/3.jpg" alt="Featured Image" class="img-responsive">
-									</div>
-								</div><!-- item -->
+								
 
-								<!-- item -->
-								<div class="item">
-									<div class="carousel-image">
-										<!-- image-wrapper -->
-										<img src="images/slider/4.jpg" alt="Featured Image" class="img-responsive">
-									</div>
-								</div><!-- item -->
 
-								<!-- item -->
-								<div class="item">
-									<div class="carousel-image">
-										<!-- image-wrapper -->
-										<img src="images/slider/5.jpg" alt="Featured Image" class="img-responsive">
-									</div>
-								</div><!-- item -->
+								
 							</div><!-- carousel-inner -->
 
 							<!-- Controls -->

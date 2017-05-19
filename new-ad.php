@@ -35,6 +35,7 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link id="preset" rel="stylesheet" href="css/presets/preset1.css">
 	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/dropzone.css">
 
 	<!-- font -->
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
@@ -58,8 +59,7 @@
 </head>
 
 <body>
-	<!-- header -->
-	<header id="header" class="clearfix">
+<header id="header" class="clearfix">
 		<!-- navbar -->
 		<nav class="navbar navbar-default">
 			<div class="container">
@@ -74,108 +74,46 @@
 					<a class="navbar-brand" href="index.html"><img class="img-responsive" src="images/logo.png" alt="Logo"></a>
 				</div>
 				<!-- /navbar-header -->
-
-				<div class="navbar-left">
+				
+				<div style='margin-right: 20px;' class="navbar-right">
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="index.html">Home Default </a></li>
-									<li><a href="index-one.html">Home Version-1</a></li>
-									<li><a href="index-two.html">Home Version-2</a></li>
-									<li><a href="index-three.html">Home Version-3</a></li>
-									<li><a href="index-car.html">Home Car-1<span class="badge">New</span></a></li>
-									<li><a href="index-car-two.html">Home Car-2<span class="badge">New</span></a></li>
-									<li><a href="directory.html">Home Directory<span class="badge">Latest</span></a></li>
-								</ul>
-							</li>
-							<li><a href="categories.html">Category</a></li>
-							<li><a href="details.html">all ads</a></li>
-							<li><a href="faq.html">Help/Support</a></li>
-							<li class="active dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="about-us.html">ABout Us</a></li>
-									<li><a href="contact-us.html">Contact Us</a></li>
-									<li><a href="ad-post.html">Ad post</a></li>
-									<li class="active"><a href="ad-post-details.html">Ad post Details</a></li>
-									<li><a href="categories-main.html">Category Ads</a></li>
-									<li><a href="details.html">Ad Details</a></li>
-									<li><a href="my-ads.html">My Ads</a></li>
-									<li><a href="my-profile.html">My Profile</a></li>
-									<li><a href="favourite-ads.html">Favourite Ads</a></li>
-									<li><a href="archived-ads.html">Archived Ads</a></li>
-									<li><a href="pending-ads.html">Pending Ads</a></li>
-									<li><a href="delete-account.html">Close Account</a></li>
-									<li><a href="published.html">Ad Publised</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
-									<li><a href="signin.html">Sign In</a></li>
-									<li><a href="faq.html">FAQ</a></li>
-									<li><a href="coming-soon.html">Coming Soon <span class="badge">New</span></a></li>
-									<li><a href="pricing.html">Pricing<span class="badge">New</span></a></li>
-									<li><a href="500-page.html">500 Opsss<span class="badge">New</span></a></li>
-									<li><a href="404-page.html">404 Error<span class="badge">New</span></a></li>
-								</ul>
-							</li>
+							<li><a href="categories.html">الرئيسية</a></li>
+							<li><a href="details.html">جميع الاعلانات</a></li>
+							<li><a href="faq.html">اتصل بنا</a></li> 
+						
 						</ul>
 					</div>
 				</div>
+				
 
-				<!-- nav-right -->
-				<div class="nav-right">
-					<!-- language-dropdown -->
-					<div class="dropdown language-dropdown">
-						<i class="fa fa-globe"></i>
-						<a data-toggle="dropdown" href="#"><span class="change-text">United Kingdom</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu language-change">
-							<li><a href="#">United Kingdom</a></li>
-							<li><a href="#">United States</a></li>
-							<li><a href="#">China</a></li>
-							<li><a href="#">Russia</a></li>
-						</ul>
-					</div>
-					<!-- language-dropdown -->
+				<div style="text-align:left" class="nav-right">
+					
 
-					<!-- sign-in -->
-					<ul class="sign-in">
-						<li><i class="fa fa-user"></i></li>
-						<li><a href="signin.html"> Sign In </a></li>
-						<li><a href="signup.html">Register</a></li>
-					</ul>
-					<!-- sign-in -->
-
-					<a href="ad-post.html" class="btn">Post Your Ad</a>
+					<a href="new-ad.php" class="btn">انشر اعلانك الان </a>
 				</div>
-				<!-- nav-right -->
 			</div>
-			<!-- container -->
 		</nav>
-		<!-- navbar -->
-	</header>
-	<!-- header -->
+</header>
 
 	<!-- main -->
 	<section id="main" class="clearfix ad-details-page">
 		<div class="container">
 
-			<div class="breadcrumb-section">
-				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li>Ad Post</li>
-				</ol>
-				<!-- breadcrumb -->
-				<h2 class="title">Mobile Phones</h2>
-			</div>
-			<!-- banner -->
-
 			<div class="adpost-details">
 				<div class="row">
 					<div class="col-md-8">
-						<form action="#">
+						
 							<fieldset>
 								<div class="section postdetails">
-									<h4>Sell an item or service <span class="pull-left">* حقول إجباريه</span></h4>
-									
+									<h4><span class="pull-left">* حقول إجباريه</span></h4>
+<div class="image_upload_div">
+	<div class="dropzone" id="dropzonewidget">
+ <div class="dz-message" data-dz-message><span>اختر صور لرفعها</span></div>
+   </div> 
+   <button style="display:none" type="button"  id="btnupload">UPPLOAD</button>
+</div> 
+<br>
 											<div class="row form-group add-title">
 												<label class="col-sm-3 label-title">صنف الاعلان<span class="required">*</span></label>
 												<div class="col-sm-9">
@@ -191,40 +129,12 @@
 													<input id="pro_name" type="text" class="form-control" id="text" placeholder="على سبيل المثال, تلفون ايفون عرطه للبيع">
 												</div>
 											</div>
-											<div class="row form-group add-image">
-												<label class="col-sm-3 label-title">صور للاعلان</span> </label>
-												<div class="col-sm-9">
-													 <form action="api/php/product.image.inc.php?" method="post" enctype="multipart/form-data">
-													<input type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple/>
-													<div class="col-md-12"><div id="image_preview"></div></div>
-													<br>
-													<input style='visibility:hidden' id="btnupimg" type="submit" name='submit_image' value="Upload Image"/>
-													</form>
-													<br>
-													<h5><i class="fa fa-upload" aria-hidden="true"></i>يمكنك إضافة أكثر من صورة</span></h5>
-													<!--<div class="upload-section">
-														<label class="upload-image" for="upload-image-one">
-													<input type="file" id="upload-image-one">
-												</label>
-
-														<label class="upload-image" for="upload-image-two">
-													<input type="file" id="upload-image-two">
-												</label>
-														<label class="upload-image" for="upload-image-three">
-													<input type="file" id="upload-image-three">
-												</label>
-
-														<label class="upload-image" for="upload-imagefour">
-													<input type="file" id="upload-imagefour">
-												</label>
-													</div>-->
-												</div>
-											</div>
+											
 											<div class="row form-group select-condition">
 												<label class="col-sm-3">الحالة<span class="required">*</span></label>
 												<div class="col-sm-9">
 													<select id="ddlcond" class="form-control">
-													<option value="1">مستحدم</option><option value="2">جديد</option>  
+													<option value="0">اختر حالة الاعلان</option><option value="1">مستحدم</option><option value="2">جديد</option>  
 													</select>
 												</div>
 											</div>
@@ -279,16 +189,13 @@
 										<!-- section -->
 
 										<div class="checkbox section agreement">
-											<label for="send">
-										<input type="checkbox" name="send" id="send">
-										Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www By clicking "Post", you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> and acknowledge that you are the rightful owner of this item and using Trade to find a genuine buyer.
-									</label>
-											<input type="button" value="نشر الاعلان" onclick="SaveProduct()" class="btn btn-primary">
+										
+											<input id="btnSave" type="button" value="نشر الاعلان" onclick="SaveProduct()" class="btn btn-primary">
 										</div>
 										<!-- section -->
 
 							</fieldset>
-						</form>
+						<!--</form>-->
 						<!-- form -->
 						</div>
 
@@ -442,6 +349,7 @@
 	<script src="js/jquery.countdown.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/switcher.js"></script>
+	<script src="js/dropzone.js"></script>
 	<script>
 		(function (i, s, o, g, r, a, m) {
 		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -455,12 +363,127 @@
 
 	</script>
 	<script>
+	var product_id="";
+	Dropzone.autoDiscover = false;
+jQuery(document).ready(function() {
+//	$("#btnSave").click(function(){
+    
+  //  return false;
+//});
+	$("#btnupload").trigger("click");
+  var myDropzone = new Dropzone("#dropzonewidget", { 
+    url: 'upload.php',
+    autoProcessQueue:false,
+	addRemoveLinks: true,
+	maxFilesize: 4,
+  });
+
+  $('#btnupload').on('click',function(e){
+    e.preventDefault();
+    myDropzone.processQueue();  
+  });   
+});
             function SaveProduct(){
+				if($("#ddlcat").val()=="0")
+				{
+					$("#ddlcat").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#ddlcat").offset().top - 200
+                }, 500);
+				}
+					
+				else if(!$("#pro_name").val())
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#pro_name").offset().top - 200
+                }, 500);
+				}
+				else if($("#ddlcond").val()=="0")
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#ddlcond").offset().top - 200
+                }, 500);
+				}
+				else if(!$("#pro_price").val())
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","1px solid #e3e3e3")
+					$("#pro_price").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#pro_price").offset().top - 200
+                }, 500);
+				}
+				else if(!$("#pro_desc").val())
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","1px solid #e3e3e3")
+					$("#pro_price").css("border","1px solid #e3e3e3")
+					$("#pro_desc").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#pro_desc").offset().top - 200
+                }, 500);
+				}
+				else if(!$("#seller_name").val())
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","1px solid #e3e3e3")
+					$("#pro_price").css("border","1px solid #e3e3e3")
+					$("#pro_desc").css("border","1px solid #e3e3e3")
+					$("#seller_name").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#seller_name").offset().top - 200
+                }, 500);
+				}
+				else if(!$("#seller_mob").val())
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","1px solid #e3e3e3")
+					$("#pro_price").css("border","1px solid #e3e3e3")
+					$("#pro_desc").css("border","1px solid #e3e3e3")
+					$("#seller_name").css("border","1px solid #e3e3e3")
+					$("#seller_mob").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#seller_mob").offset().top - 200
+                }, 500);
+				}
+				else if(!$("#seller_city").val())
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","1px solid #e3e3e3")
+					$("#pro_price").css("border","1px solid #e3e3e3")
+					$("#pro_desc").css("border","1px solid #e3e3e3")
+					$("#seller_name").css("border","1px solid #e3e3e3")
+					$("#seller_mob").css("border","1px solid #e3e3e3")
+					$("#seller_city").css("border","2px solid red")
+					$('html, body').animate({
+                    scrollTop: $("#seller_city").offset().top - 200
+                }, 500);
+				}
+				else
+				{
+					$("#ddlcat").css("border","1px solid #e3e3e3")
+					$("#pro_name").css("border","1px solid #e3e3e3")
+					$("#ddlcond").css("border","1px solid #e3e3e3")
+					$("#pro_price").css("border","1px solid #e3e3e3")
+					$("#pro_desc").css("border","1px solid #e3e3e3")
+					$("#seller_name").css("border","1px solid #e3e3e3")
+					$("#seller_mob").css("border","1px solid #e3e3e3")
+					$("#seller_city").css("border","1px solid #e3e3e3")
                 var params = "ddlcat=" + $("#ddlcat").val();
                 params += "&pro_name=" + $("#pro_name").val().trim();
                 params += "&pro_price=" + $("#pro_price").val().trim();
                 params += "&pro_desc=" + $("#pro_desc").val().trim();
-				params += "&pro_cond=" + $("#pro_cond").text().trim();
+				params += "&ddlcond=" + $("#ddlcond").text().trim();
                 params += "&seller_name=" + $("#seller_name").val().trim();
                 params += "&seller_mob=" + $("#seller_mob").val().trim();                
                 params += "&seller_city=" + $("#seller_city").val().trim();
@@ -470,15 +493,18 @@
                     type:'POST' ,
                     url: "api/php/product.add.inc.php",
                     data: params,
-                    success: function(response) {                        
+                    success: function(response) {  
+					                    
                         console.log(response);
                         var data = JSON.parse(response);     
 						console.log(data); 
+						product_id=data.product.product_id
 						//alert(data.product.product_id)                 
                         if(data.error == false) {
+							product_id=data.product.product_id
 							setCookie("proid",data.product.product_id,1)
-							$("#btnupimg").click();
-                         
+							$("#btnupload").click();
+                         window.location.href = "published.php";
                         } else {
                   
                         }//end if
@@ -486,15 +512,8 @@
                     }                  
                 });              
             }
-
-			function preview_image() 
-			{
-				var total_file=document.getElementById("upload_file").files.length;
-				for(var i=0;i<total_file;i++)
-				{
-					$('#image_preview').append("<img style='float: right;width: 100px;display: inline;' src='"+URL.createObjectURL(event.target.files[i])+"'>");
-				}
 			}
+
 
 			function setCookie(cname, cvalue, exdays) {
 			var d = new Date();
@@ -507,6 +526,5 @@
 			
 </body>
 
-<!-- Mirrored from demo.themeregion.com/trade/ad-post-details.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 27 Apr 2017 20:23:10 GMT -->
 
 </html>

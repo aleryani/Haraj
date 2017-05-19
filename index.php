@@ -23,34 +23,40 @@
     $result = $product->get_products_with_images();    
      if(isset($result['product'])) {
          $products = $result['product'];
+		 $pro_id="";
          $output = "";
          foreach($products as $product){
+			if($pro_id==$product['product_id'])
+				$pro_id=$product['product_id'];
+				else
+				{
 			$output.="<div class='ad-item row'>";
 			$output.="<div class='item-image-box col-sm-3'>";
 			$output.="<div class='item-image'>";
-			$output.="<a href='details.php?id={$product['product_id']}'><img src='images/trending/2.jpg' alt='Image' class='img-responsive'></a>";
+			$output.="<a href='details.php?id={$product['product_id']}'><img src='{$product['picture_path']}' alt='Image' class='img-responsive'></a>";
 			$output.="</div>";
 			$output.="</div>";
 			$output.="<div class='item-info col-sm-9'>";
 			$output.="<div class='ad-info'>";
-			$output.="<h3 class='item-price'>$250.00 <span>({$product['product_condition']})</span></h3>";
+			$output.="<h3 class='item-price'>{$product['product_price']}<span>({$product['product_condition']})</span></h3>";
 			$output.="<h4 class='item-title'><a href='#'>{$product['product_name']}</a></h4>";
 			$output.="<div class='item-cat'>";
-			$output.="<span><a href='#'>Home Appliances</a></span>";
-			$output.="<span><a href='#'>Sofa</a></span>";
+			$output.="<span><a href='#'>{$product['category_name']}</a></span>";
+
 			$output.="</div>";										
 			$output.="</div>";
 			$output.="<div class='ad-meta'>";
 			$output.="<div class='meta-content'>";
-			$output.="<span class='dated'><a href='#'>7 Jan, 16  10:10 pm </a></span>";
-			$output.="<a href='#' class='tag'><i class='fa fa-tags'></i> Used</a>";
+			$output.="<span class='dated'><a href='#'>{$product['publish_date']}</a></span>";
 			$output.="</div>";									
 			$output.="<div class='user-option pull-left'>";
-			$output.="<a href='#' data-toggle='tooltip' data-placement='top' title='Los Angeles, USA'><i class='fa fa-map-marker'></i> </a>";
+			$output.="<a href='#' data-toggle='tooltip' data-placement='top' title='{$product['saler_city']}'><i class='fa fa-map-marker'></i> </a>";
 			$output.="</div>";
 			$output.="</div>";
 			$output.="</div>";
 			$output.="</div>";
+			$pro_id=$product['product_id'];
+				}
          }//end foreach    
      }//end if    
 	 
@@ -89,7 +95,50 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/ico/apple-touch-icon-57-precomposed.png">
     <!-- icons -->
+	<style>
 
+
+#floating-button{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #db4437;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px #666;
+}
+
+.plus{
+  color: white;
+  position: absolute;
+  top: 0;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  line-height: 55px;
+  font-size: 24px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  animation: plus-out 0.3s;
+  transition: all 0.3s;
+}
+
+#container-floating{
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  bottom: 30px;
+  right: 30px;
+  z-index: 50px;
+}
+
+	</style>
   </head>
   <body>
 	<!-- header -->
@@ -109,80 +158,26 @@
 				</div>
 				<!-- /navbar-header -->
 				
-				<div class="navbar-left">
+				<div style='margin-right: 20px;' class="navbar-right">
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li class="active dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="index.html">Home Default </a></li>
-									<li class="active"><a href="index-one.html">Home Version-1</a></li>
-									<li><a href="index-two.html">Home Version-2</a></li>
-									<li><a href="index-three.html">Home Version-3</a></li>
-									<li><a href="index-car.html">Home Car-1<span class="badge">New</span></a></li>
-									<li><a href="index-car-two.html">Home Car-2<span class="badge">New</span></a></li>
-									<li><a href="directory.html">Home Directory<span class="badge">Latest</span></a></li>
-								</ul>
-							</li>
-							<li><a href="categories.html">Category</a></li>
-							<li><a href="details.html">all ads</a></li>
-							<li><a href="faq.html">Help/Support</a></li> 
-							<li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="about-us.html">ABout Us</a></li>
-									<li><a href="contact-us.html">Contact Us</a></li>
-									<li><a href="ad-post.html">Ad post</a></li>
-									<li><a href="ad-post-details.html">Ad post Details</a></li>
-									<li><a href="categories-main.html">Category Ads</a></li>
-									<li><a href="details.html">Ad Details</a></li>
-									<li><a href="my-ads.html">My Ads</a></li>
-									<li><a href="my-profile.html">My Profile</a></li>
-									<li><a href="favourite-ads.html">Favourite Ads</a></li>
-									<li><a href="archived-ads.html">Archived Ads</a></li>
-									<li><a href="pending-ads.html">Pending Ads</a></li>
-									<li><a href="delete-account.html">Close Account</a></li>
-									<li><a href="published.html">Ad Publised</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
-									<li><a href="signin.html">Sign In</a></li>
-									<li><a href="faq.html">FAQ</a></li>	
-									<li><a href="coming-soon.html">Coming Soon <span class="badge">New</span></a></li>
-									<li><a href="pricing.html">Pricing<span class="badge">New</span></a></li>
-									<li><a href="500-page.html">500 Opsss<span class="badge">New</span></a></li>
-									<li><a href="404-page.html">404 Error<span class="badge">New</span></a></li>
-								</ul>
-							</li>
+							<li><a href="categories.html">الرئيسية</a></li>
+							<li><a href="details.html">جميع الاعلانات</a></li>
+							<li><a href="faq.html">اتصل بنا</a></li> 
+						
 						</ul>
 					</div>
 				</div>
 				
-				<!-- nav-right -->
-				<div class="nav-right">
-					<!-- language-dropdown -->
-					<div class="dropdown language-dropdown">
-						<i class="fa fa-globe"></i> 						
-						<a data-toggle="dropdown" href="#"><span class="change-text">United Kingdom</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu language-change">
-							<li><a href="#">United Kingdom</a></li>
-							<li><a href="#">United States</a></li>
-							<li><a href="#">China</a></li>
-							<li><a href="#">Russia</a></li>
-						</ul>								
-					</div><!-- language-dropdown -->
 
-					<!-- sign-in -->					
-					<ul class="sign-in">
-						<li><i class="fa fa-user"></i></li>
-						<li><a href="signin.html"> Sign In </a></li>
-						<li><a href="signup.html">Register</a></li>
-					</ul><!-- sign-in -->					
+				<div style="text-align:left" class="nav-right">
+					
 
-					<a href="ad-post.html" class="btn">Post Your Ad</a>
+					<a style="color" href="new-ad.php" class="btn">انشر اعلانك الان </a>
 				</div>
-				<!-- nav-right -->
-			</div><!-- container -->
-		</nav><!-- navbar -->
-	</header><!-- header -->
-
-	<!-- home-one-info -->
+			</div>
+		</nav>
+</header>
 	<section id="home-one-info" class="clearfix home-one">
 		<!-- world -->
 		<div id="banner-two" class="parallax-section">
@@ -190,35 +185,32 @@
 				<!-- banner -->
 				<div class="col-sm-12 ">
 					<div class="banner">
-						<h1 class="title">World’s Largest Classifieds Portal  </h1>
-						<h3>Search from over 15,00,000 classifieds & Post unlimited classifieds free!</h3>
+						<h1 class="title">أكبر تجمع إعلاني في اليمن</h1>
+						<h3>قم بنشر اعلانك مجانا ومن دون الحاجة للتسجيل</h3>
 						<!-- banner-form -->
 						<div class="banner-form">
 							<form action="#">
-								<!-- category-change -->
+						
 								<div style=" float: right;text-align: right;" class="dropdown category-dropdown">						
-									<!--<a data-toggle="dropdown" href="#"><span class="change-text">Select Category</span> <i class="fa fa-angle-down"></i></a>-->
 									<select id="ddlsearch" style="width: 187px;border: none;margin-right: -19px;" class="form-control">
 										<?php echo $catSearch; ?>
 									</select>								
-								</div><!-- category-change -->
+								</div>
 							
 								<input id="txtsearch" type="text" class="form-control" placeholder="اكتب ما تبحث عنه">
 								<button onclick="searchProduct(event)"  type="submit" class="form-control" value="Search">بحث</button>
 							</form>
-						</div><!-- banner-form -->
-						
-						<!-- banner-socail -->
+						</div>
 						<ul class="banner-socail">
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-						</ul><!-- banner-socail -->
+						</ul>
 					</div>
-				</div><!-- banner -->
-			</div><!-- row -->
-		</div><!-- world -->
+				</div>
+			</div>
+		</div>
 
 		<div class="container">
 			<div class="section category-ad text-center">
@@ -227,20 +219,15 @@
 							
 				</ul>				
 			</div>
-				
-			<!-- trending-ads -->
+	
 			<div class="section trending-ads">
 				<div class="section-title tab-manu">
-					<h4>Trending Ads</h4>
-					 <!-- Nav tabs -->      
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#recent-ads"  data-toggle="tab">Recent Ads</a></li>
-					</ul>
+					<h4 style="float:right">أحدث الاعلانات</h4>
+				
 				</div>
 
-				<!-- Tab panes -->
 				<div class="tab-content">
-					<!-- tab-pane -->
+				
 					<div role="tabpanel" class="tab-pane fade in active" id="recent-ads">
 					
 				<?php echo $output; ?>  
@@ -248,53 +235,47 @@
 					</div>
 					
 				</div>
-			</div><!-- trending-ads -->			
-
-			<!-- cta -->
+			</div>
 			<div class="cta text-center">
 				<div class="row">
-					<!-- single-cta -->
+				
 					<div class="col-sm-4">
 						<div class="single-cta">
-							<!-- cta-icon -->
+						
 							<div class="cta-icon icon-secure">
 								<img src="images/icon/13.png" alt="Icon" class="img-responsive">
-							</div><!-- cta-icon -->
+							</div>
 
 							<h4>Secure Trading</h4>
 							<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie</p>
 						</div>
-					</div><!-- single-cta -->
-
-					<!-- single-cta -->
+					</div>
 					<div class="col-sm-4">
 						<div class="single-cta">
-							<!-- cta-icon -->
+						
 							<div class="cta-icon icon-support">
 								<img src="images/icon/14.png" alt="Icon" class="img-responsive">
-							</div><!-- cta-icon -->
+							</div>
 
 							<h4>24/7 Support</h4>
 							<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
 						</div>
-					</div><!-- single-cta -->
-
-					<!-- single-cta -->
+					</div>
 					<div class="col-sm-4">
 						<div class="single-cta">
-							<!-- cta-icon -->
+			
 							<div class="cta-icon icon-trading">
 								<img src="images/icon/15.png" alt="Icon" class="img-responsive">
-							</div><!-- cta-icon -->
+							</div>
 
 							<h4>Easy Trading</h4>
 							<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram</p>
 						</div>
-					</div><!-- single-cta -->
-				</div><!-- row -->
-			</div><!-- cta -->											
-		</div><!-- container -->
-	</section><!-- home-one-info -->
+					</div>
+				</div>
+			</div>									
+		</div>
+	</section>
 	
 	<!-- download -->
 	<section id="download" class="clearfix parallax-section">
@@ -308,48 +289,25 @@
 			<!-- row -->
 			<div class="row">
 				<!-- download-app -->
-				<div class="col-sm-4">
+				<div class="col-sm-12">
 					<a href="#" class="download-app">
 						<img src="images/icon/16.png" alt="Image" class="img-responsive">
 						<span class="pull-left">
-							<span>available on</span>
-							<strong>Google Play</strong>
+							<span>متوفر على</span>
+							<strong>متجر جوجل</strong>
 						</span>
 					</a>
-				</div><!-- download-app -->
+				</div>
 
-				<!-- download-app -->
-				<div class="col-sm-4">
-					<a href="#" class="download-app">
-						<img src="images/icon/17.png" alt="Image" class="img-responsive">
-						<span class="pull-left">
-							<span>available on</span>
-							<strong>App Store</strong>
-						</span>
-					</a>
-				</div><!-- download-app -->
-
-				<!-- download-app -->
-				<div class="col-sm-4">
-					<a href="#" class="download-app">
-						<img src="images/icon/18.png" alt="Image" class="img-responsive">
-						<span class="pull-left">
-							<span>available on</span>
-							<strong>Windows Store</strong>
-						</span>
-					</a>
-				</div><!-- download-app -->
-			</div><!-- row -->
-		</div><!-- contaioner -->
-	</section><!-- download -->
-
-	<!-- footer -->
+			</div>
+		</div>
+	</section>
 	<footer id="footer" class="clearfix">
-		<!-- footer-top -->
+
 		<section class="footer-top clearfix">
 			<div class="container">
 				<div class="row">
-					<!-- footer-widget -->
+	
 					<div class="col-sm-3">
 						<div class="footer-widget">
 							<h3>Quik Links</h3>
@@ -363,9 +321,8 @@
 								<li><a href="#">Blog</a></li>
 							</ul>
 						</div>
-					</div><!-- footer-widget -->
+					</div>
 
-					<!-- footer-widget -->
 					<div class="col-sm-3">
 						<div class="footer-widget">
 							<h3>How to sell fast</h3>
@@ -416,21 +373,15 @@
 			</div>
 		</div><!-- footer-bottom -->
 	</footer><!-- footer -->
-	
-	<!--/Preset Style Chooser--> 
-	<div class="style-chooser">
-		<div class="style-chooser-inner">
-			<a href="#" class="toggler"><i class="fa fa-life-ring fa-spin"></i></a>
-			<h4>Presets</h4>
-			<ul class="preset-list clearfix">
-				<li class="preset1 active" data-preset="1"><a href="#" data-color="preset1"></a></li>
-				<li class="preset2" data-preset="2"><a href="#" data-color="preset2"></a></li>
-				<li class="preset3" data-preset="3"><a href="#" data-color="preset3"></a></li>        
-				<li class="preset4" data-preset="4"><a href="#" data-color="preset4"></a></li>
-			</ul>
-		</div>
-	</div>
-	<!--/End:Preset Style Chooser-->
+	<div id="container-floating">
+
+
+
+  <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="newmail()">
+    <p class="plus"><i class="fa fa-camera"></i></p>
+  </div>
+
+</div>
 	
      <!-- JS -->
     <script src="js/jquery.min.js"></script>
@@ -440,7 +391,7 @@
 	<script src="js/gmaps.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/smoothscroll.min.js"></script>
-    <script src="js/scrollup.min.js"></script>
+    <!--<script src="js/scrollup.min.js"></script>-->
     <script src="js/price-range.js"></script>  
     <script src="js/jquery.countdown.js"></script>  
     <script src="js/custom.js"></script>

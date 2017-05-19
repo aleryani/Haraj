@@ -87,7 +87,7 @@ a, .nav li a:hover,
 .workshop-traning .btn.btn-primary:hover,
 .see-more button:hover, .buttons a.btn:hover, .user-account .nav-tabs>li.active>a,
 .resume-content .icons, .profile-info address a:hover   {
-	color:#00a651;
+	color:#db4437;
 }
 
 
@@ -107,7 +107,7 @@ a.verified i,
 .home-banner .contact-form .form-control,
 .download-button a.btn:hover, .post-resume .upload-image:hover,
 .post-resume form .buttons a.btn:hover  {
-	background-color:#00a651;
+	background-color:#db4437;
 }
 
 
@@ -117,12 +117,12 @@ a.verified i,
 .home-banner .contact-form .form-control, 
 .col-to-action .form-control,
  .buttons a.btn, .post-resume form .buttons a.btn:hover {
-	border-color: #00a651;
+	border-color: #db4437;
 }
 
 
 .featured-image a i:after {
-	border-right: 40px solid #00a651;
+	border-right: 40px solid #db4437;
 }
  
 #something-sell .btn.btn-primary, 
@@ -137,15 +137,15 @@ a.verified i,
 .pagination>.active>a:hover, 
 #something-sell a.btn:hover,
  .buttons a.btn:hover  {
-	border: 1px solid #00a651;
+	border: 1px solid #db4437;
 }
 
 .adpost-details input[type="radio"] + label:before {
-	border: 2px solid #00a651;
+	border: 2px solid #db4437;
 }
 
 .adpost-details input[type="radio"]:checked + label:after {
-	border: 5px solid #00a651;
+	border: 5px solid #db4437;
 }
 
 .rating input[type="radio"] + label:before,

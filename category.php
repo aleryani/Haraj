@@ -103,78 +103,26 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
 				</div>
 				<!-- /navbar-header -->
 				
-				<div class="navbar-left">
+				<div style='margin-right: 20px;' class="navbar-right">
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="index.html">Home Default </a></li>
-									<li><a href="index-one.html">Home Version-1</a></li>
-									<li><a href="index-two.html">Home Version-2</a></li>
-									<li><a href="index-three.html">Home Version-3</a></li>
-									<li><a href="index-car.html">Home Car-1<span class="badge">New</span></a></li>
-									<li><a href="index-car-two.html">Home Car-2<span class="badge">New</span></a></li>
-									<li><a href="directory.html">Home Directory<span class="badge">Latest</span></a></li>
-								</ul>
-							</li>
-							<li><a href="categories.html">Category</a></li>
-							<li><a href="details.html">all ads</a></li>
-							<li><a href="faq.html">Help/Support</a></li> 
-							<li class="active dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="about-us.html">ABout Us</a></li>
-									<li><a href="contact-us.html">Contact Us</a></li>
-									<li><a href="ad-post.html">Ad post</a></li>
-									<li><a href="ad-post-details.html">Ad post Details</a></li>
-									<li class="active"><a href="categories-main.html">Category Ads</a></li>
-									<li><a href="details.html">Ad Details</a></li>
-									<li><a href="my-ads.html">My Ads</a></li>
-									<li><a href="my-profile.html">My Profile</a></li>
-									<li><a href="favourite-ads.html">Favourite Ads</a></li>
-									<li><a href="archived-ads.html">Archived Ads</a></li>
-									<li><a href="pending-ads.html">Pending Ads</a></li>
-									<li><a href="delete-account.html">Close Account</a></li>
-									<li><a href="published.html">Ad Publised</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
-									<li><a href="signin.html">Sign In</a></li>
-									<li><a href="faq.html">FAQ</a></li>	
-									<li><a href="coming-soon.html">Coming Soon <span class="badge">New</span></a></li>
-									<li><a href="pricing.html">Pricing<span class="badge">New</span></a></li>
-									<li><a href="500-page.html">500 Opsss<span class="badge">New</span></a></li>
-									<li><a href="404-page.html">404 Error<span class="badge">New</span></a></li>
-								</ul>
-							</li>
+							<li><a href="categories.html">الرئيسية</a></li>
+							<li><a href="details.html">جميع الاعلانات</a></li>
+							<li><a href="faq.html">اتصل بنا</a></li> 
+						
 						</ul>
 					</div>
 				</div>
 				
-				<!-- nav-right -->
-				<div class="nav-right">
-					<!-- language-dropdown -->
-					<div class="dropdown language-dropdown">
-						<i class="fa fa-globe"></i> 						
-						<a data-toggle="dropdown" href="#"><span class="change-text">United Kingdom</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu language-change">
-							<li><a href="#">United Kingdom</a></li>
-							<li><a href="#">United States</a></li>
-							<li><a href="#">China</a></li>
-							<li><a href="#">Russia</a></li>
-						</ul>								
-					</div><!-- language-dropdown -->
 
-					<!-- sign-in -->					
-					<ul class="sign-in">
-						<li><i class="fa fa-user"></i></li>
-						<li><a href="signin.html"> Sign In </a></li>
-						<li><a href="signup.html">Register</a></li>
-					</ul><!-- sign-in -->					
+				<div style="text-align:left" class="nav-right">
+					
 
-					<a href="ad-post.html" class="btn">Post Your Ad</a>
+					<a style="color" href="new-ad.php" class="btn">انشر اعلانك الان </a>
 				</div>
-				<!-- nav-right -->
-			</div><!-- container -->
-		</nav><!-- navbar -->
-	</header><!-- header -->
+			</div>
+		</nav>
+</header>
 
 	<!-- main -->
 	<section id="main" class="clearfix category-page main-categories">
@@ -221,119 +169,6 @@ if(isset($_GET['id']) && $_GET['id'] != "" &&  is_numeric($_GET['id'])){
 									</div>
 								</div><!-- panel -->
 
-								<!-- panel -->
-								<div class="panel-default panel-faq">
-									<!-- panel-heading -->
-									<div class="panel-heading">
-										<a data-toggle="collapse" data-parent="#accordion" href="#accordion-two">
-											<h4 class="panel-title">Condition<span class="pull-right"><i class="fa fa-plus"></i></span></h4>
-										</a>
-									</div><!-- panel-heading -->
-
-									<div id="accordion-two" class="panel-collapse collapse">
-										<!-- panel-body -->
-										<div class="panel-body">
-											<label for="new"><input type="checkbox" name="new" id="new"> New</label>
-											<label for="used"><input type="checkbox" name="used" id="used"> Used</label>
-										</div><!-- panel-body -->
-									</div>
-								</div><!-- panel -->
-
-								<!-- panel -->
-								<div class="panel-default panel-faq">
-									<!-- panel-heading -->
-									<div class="panel-heading">
-										<a data-toggle="collapse" data-parent="#accordion" href="#accordion-three">
-											<h4 class="panel-title">
-											Price
-											<span class="pull-right"><i class="fa fa-plus"></i></span>
-											</h4>
-										</a>
-									</div><!-- panel-heading -->
-
-									<div id="accordion-three" class="panel-collapse collapse">
-										<!-- panel-body -->
-										<div class="panel-body">
-											<div class="price-range"><!--price-range-->
-												<div class="price">
-													<span>$100 - <strong>$700</strong></span>
-													<div class="dropdown category-dropdown pull-right">	
-														<a data-toggle="dropdown" href="#"><span class="change-text">USD</span><i class="fa fa-caret-square-o-down"></i></a>
-														<ul class="dropdown-menu category-change">
-															<li><a href="#">$05</a></li>
-															<li><a href="#">$10</a></li>
-															<li><a href="#">$15</a></li>
-															<li><a href="#">$20</a></li>
-															<li><a href="#">$25</a></li>
-														</ul>								
-													</div><!-- category-change -->													
-													 <input type="text"value="" data-slider-min="0" data-slider-max="700" data-slider-step="5" data-slider-value="[250,450]" id="price" ><br />
-												</div>
-											</div><!--/price-range-->
-										</div><!-- panel-body -->
-									</div>
-								</div><!-- panel -->
-
-								<!-- panel -->
-								<div class="panel-default panel-faq">
-									<!-- panel-heading -->
-									<div class="panel-heading">
-										<a data-toggle="collapse" data-parent="#accordion" href="#accordion-four">
-											<h4 class="panel-title">
-											Posted By
-											<span class="pull-right"><i class="fa fa-plus"></i></span>
-											</h4>
-										</a>
-									</div><!-- panel-heading -->
-
-									<div id="accordion-four" class="panel-collapse collapse">
-										<!-- panel-body -->
-										<div class="panel-body">
-											<label for="individual"><input type="checkbox" name="individual" id="individual"> Individual</label>
-											<label for="dealer"><input type="checkbox" name="dealer" id="dealer"> Dealer</label>
-											<label for="reseller"><input type="checkbox" name="reseller" id="reseller"> Reseller</label>
-											<label for="manufacturer"><input type="checkbox" name="manufacturer" id="manufacturer"> Manufacturer</label>
-										</div><!-- panel-body -->
-									</div>
-								</div><!-- panel -->
-
-								<!-- panel -->
-								<div class="panel-default panel-faq">
-									<!-- panel-heading -->
-									<div class="panel-heading">
-										<a data-toggle="collapse" data-parent="#accordion" href="#accordion-five">
-											<h4 class="panel-title">
-											Brand
-											<span class="pull-right"><i class="fa fa-plus"></i></span>
-											</h4>
-										</a>
-									</div><!-- panel-heading -->
-
-									<div id="accordion-five" class="panel-collapse collapse">
-										<!-- panel-body -->
-										<div class="panel-body">
-											<input type="text" placeholder="Search Brand" class="form-control">
-											<label for="apple"><input type="checkbox" name="apple" id="apple"> Apple</label>
-											<label for="htc"><input type="checkbox" name="htc" id="htc"> HTC</label>
-											<label for="micromax"><input type="checkbox" name="micromax" id="micromax"> Micromax</label>
-											<label for="nokia"><input type="checkbox" name="nokia" id="nokia"> Nokia</label>
-											<label for="others"><input type="checkbox" name="others" id="others"> Others</label>
-											<label for="samsung"><input type="checkbox" name="samsung" id="samsung"> Samsung</label>
-												<span class="border"></span>
-											<label for="acer"><input type="checkbox" name="acer" id="acer"> Acer</label>
-											<label for="bird"><input type="checkbox" name="bird" id="bird"> Bird</label>
-											<label for="blackberry"><input type="checkbox" name="blackberry" id="blackberry"> Blackberry</label>
-											<label for="celkon"><input type="checkbox" name="celkon" id="celkon"> Celkon</label>
-											<label for="ericsson"><input type="checkbox" name="ericsson" id="ericsson"> Ericsson</label>
-											<label for="fly"><input type="checkbox" name="fly" id="fly"> Fly</label>
-											<label for="g-fone"><input type="checkbox" name="g-fone" id="g-fone"> g-Fone</label>
-											<label for="gionee"><input type="checkbox" name="gionee" id="gionee"> Gionee</label>
-											<label for="haier"><input type="checkbox" name="haier" id="haier"> Haier</label>
-											<label for="hp"><input type="checkbox" name="hp" id="hp"> HP</label>
-
-										</div><!-- panel-body -->
-									</div>
-								</div> <!-- panel -->   
 							 </div><!-- panel-group -->
 						</div>
 					</div><!-- accordion-->

@@ -84,13 +84,23 @@
    
             return $response;
         }
+        public function get_product_Images($product_id){
+        
+            $response['error'] = true;
+        
+                $response['error'] = false;
+                $query = "SELECT picture_path from product_picture WHERE (product_id = {$product_id})";
+                $response['images'] = $this->db->execute_select_query($query);
+   
+            return $response;
+        }
 
         
         
         function get_last_product(){            
             $query = "SELECT * FROM product WHERE product_id=(SELECT MAX(product_id) FROM product)";
             return $this->db->execute_select_query($query)[0];
-        }//end get_last_product function 
+        }
         
         public function new_product($product_name,$product_price,$product_description,$product_condition,$saler_name,$saler_phone,$saler_city,$saler_address,$category_id){
             $product_name = $this->db->escape_string($product_name);

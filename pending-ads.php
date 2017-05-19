@@ -380,13 +380,13 @@
                     url: "api/php/product.approve.inc.php",
                     data: params,
                     success: function(response) {  
-						$(obj).parent().parent().parent().parent().parent().hide()                      
+					//	$(obj).parent().parent().parent().parent().parent().hide()                      
                         console.log(response);
                         var data = JSON.parse(response);     
 						console.log(data); 
 					               
                         if(data.error == false) {
-							$(obj).parent().parent().parent().parent().parent().hide()  
+							$(obj).parent().parent().parent().parent().hide()  
                       
                         } else {
                             
